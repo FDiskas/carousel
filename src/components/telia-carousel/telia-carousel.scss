@@ -1,0 +1,10 @@
+@import '../../globals/_theme.scss';
+
+:host {
+  background-color: var(--main-bg-color, $bg-color);
+  display: block;
+}
+
+.container {
+  border: 1px solid red;
+}

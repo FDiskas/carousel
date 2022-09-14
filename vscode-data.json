@@ -1,0 +1,22 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "telia-carousel",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "height",
+          "description": ""
+        },
+        {
+          "name": "width",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}
