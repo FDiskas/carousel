@@ -3,7 +3,6 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'carousel',
-  sourceMap: true,
   globalStyle: 'src/globals/variables.scss',
   outputTargets: [
     {
@@ -25,9 +24,5 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
-  plugins: [
-    sass({
-      injectGlobalPaths: ['src/globals/variables.scss'],
-    }),
-  ],
+  plugins: [sass()],
 };

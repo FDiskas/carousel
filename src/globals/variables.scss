@@ -1,8 +1,8 @@
-@import './_theme.scss';
+@import './theme';
 
 :root {
-  --main-bg-color: rgb($bg-color);
+  --main-bg-color: #{$bg-color};
   --default-gradient: linear-gradient(to right bottom, #a460f8, #4c48ff);
   --primary-gradient: linear-gradient(to right bottom, #20e3b2, #0bc2c2);
-  --secondary-gradient: linear-gradient(to right bottom, #f9b523, #ff4e50);
+  --secondary-gradient: linear-gradient(to right bottom, #{$lightning-yellow}, #{$sunset-red});
 }

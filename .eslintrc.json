@@ -1,0 +1,16 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["standard-with-typescript", "plugin:@stencil/recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "overrides": [],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}

@@ -1,0 +1,13 @@
+diff --git a/node_modules/@stencil/eslint-plugin/dist/index.js b/node_modules/@stencil/eslint-plugin/dist/index.js
+index ce4f887..85d569c 100644
+--- a/node_modules/@stencil/eslint-plugin/dist/index.js
++++ b/node_modules/@stencil/eslint-plugin/dist/index.js
+@@ -328,7 +328,7 @@ const rule$k = {
+                         decName === 'State' ||
+                         decName === 'Element' ||
+                         decName === 'Event') {
+-                        if (node.parent.type !== 'ClassProperty') {
++                        if (node.parent.type !== 'PropertyDefinition') {
+                             context.report({
+                                 node: node,
+                                 message: `The @${decName} decorator can only be applied to class properties.`

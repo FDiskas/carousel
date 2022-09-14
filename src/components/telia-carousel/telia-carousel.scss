@@ -1,10 +1,26 @@
-@import '../../globals/_theme.scss';
+@import '../../globals/variables.scss';
 
 :host {
-  background-color: var(--main-bg-color, $bg-color);
   display: block;
+  box-sizing: border-box;
 }
 
 .container {
   border: 1px solid red;
+  background: var(--default-gradient, $bg-color);
+
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  overflow: hidden;
+
+}
+.image {
+  display: flex;
+
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }

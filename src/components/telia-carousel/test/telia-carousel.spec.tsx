@@ -5,7 +5,7 @@ describe('telia-carousel', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [TeliaCarousel],
-      html: `<telia-carousel></telia-carousel>`,
+      html: '<telia-carousel></telia-carousel>',
     });
     expect(page.root).toEqualHtml(`
       <telia-carousel>
