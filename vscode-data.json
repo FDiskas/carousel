@@ -17,6 +17,31 @@
           "description": ""
         }
       ]
+    },
+    {
+      "name": "telia-image",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "alt",
+          "description": ""
+        },
+        {
+          "name": "medium",
+          "description": ""
+        },
+        {
+          "name": "small",
+          "description": ""
+        },
+        {
+          "name": "src",
+          "description": ""
+        }
+      ]
     }
   ]
 }

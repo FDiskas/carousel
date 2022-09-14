@@ -3,7 +3,7 @@ import { Component, Element, Host, h, Prop } from '@stencil/core';
 @Component({
   tag: 'telia-carousel',
   styleUrl: 'telia-carousel.scss',
-  shadow: { delegatesFocus: true },
+  shadow: true,
 })
 export class TeliaCarousel {
   @Element() el: HTMLElement;
@@ -13,24 +13,26 @@ export class TeliaCarousel {
   @Prop() height = 100;
 
   componentDidLoad(): void {
-    console.log(this.getListHeight());
+    console.log(this.el.childElementCount);
   }
 
-  private getListHeight(): number {
-    return this.el.getBoundingClientRect().height;
+  private get totalPages(): number {
+    return this.el.childElementCount;
   }
 
-  render(): any {
+  render() {
     return (
       <Host>
         <div class="container">
-          <div class="pagination"></div>
+          <ul class="pagination">
+            {[...Array(this.totalPages).keys()].map(page => (
+              <a class="page" href={`#slide-${page}`}>
+                {page + 1}
+              </a>
+            ))}
+          </ul>
           <div class="slider">
-            <img class="image" src="https://via.placeholder.com/800x600/?text=First" alt="1" />
-            <img class="image" src="https://via.placeholder.com/800x600/?text=Second" alt="2" />
-            <img class="image" src="https://via.placeholder.com/800x600/?text=Fourth" alt="3" />
-            <img class="image" src="https://via.placeholder.com/800x600/?text=Fourth" alt="4" />
-            <img class="image" src="https://via.placeholder.com/800x600/?text=Fifth" alt="5" />
+            <slot></slot>
           </div>
         </div>
       </Host>

@@ -10,6 +10,12 @@ export namespace Components {
         "height": number;
         "width": number;
     }
+    interface TeliaImage {
+        "alt": string;
+        "medium": string;
+        "small": string;
+        "src": string;
+    }
 }
 declare global {
     interface HTMLTeliaCarouselElement extends Components.TeliaCarousel, HTMLStencilElement {
@@ -18,8 +24,15 @@ declare global {
         prototype: HTMLTeliaCarouselElement;
         new (): HTMLTeliaCarouselElement;
     };
+    interface HTMLTeliaImageElement extends Components.TeliaImage, HTMLStencilElement {
+    }
+    var HTMLTeliaImageElement: {
+        prototype: HTMLTeliaImageElement;
+        new (): HTMLTeliaImageElement;
+    };
     interface HTMLElementTagNameMap {
         "telia-carousel": HTMLTeliaCarouselElement;
+        "telia-image": HTMLTeliaImageElement;
     }
 }
 declare namespace LocalJSX {
@@ -27,8 +40,15 @@ declare namespace LocalJSX {
         "height"?: number;
         "width"?: number;
     }
+    interface TeliaImage {
+        "alt"?: string;
+        "medium"?: string;
+        "small"?: string;
+        "src"?: string;
+    }
     interface IntrinsicElements {
         "telia-carousel": TeliaCarousel;
+        "telia-image": TeliaImage;
     }
 }
 export { LocalJSX as JSX };
@@ -36,6 +56,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "telia-carousel": LocalJSX.TeliaCarousel & JSXBase.HTMLAttributes<HTMLTeliaCarouselElement>;
+            "telia-image": LocalJSX.TeliaImage & JSXBase.HTMLAttributes<HTMLTeliaImageElement>;
         }
     }
 }
