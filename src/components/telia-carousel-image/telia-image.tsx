@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
@@ -7,9 +6,20 @@ import { Component, Host, h, Prop } from '@stencil/core';
   shadow: true,
 })
 export class TeliaImage {
-  @Prop() src: string;
   @Prop() alt: string;
+
+  /**
+   * Large size image src
+   */
+  @Prop() src: string;
+  /**
+   * Small size image src
+   */
   @Prop() small: string;
+
+  /**
+   * Medium size image
+   */
   @Prop() medium: string;
   render() {
     return (

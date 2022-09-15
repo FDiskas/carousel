@@ -12,8 +12,17 @@ export namespace Components {
     }
     interface TeliaImage {
         "alt": string;
+        /**
+          * Medium size image
+         */
         "medium": string;
+        /**
+          * Small size image src
+         */
         "small": string;
+        /**
+          * Large size image src
+         */
         "src": string;
     }
 }
@@ -42,8 +51,17 @@ declare namespace LocalJSX {
     }
     interface TeliaImage {
         "alt"?: string;
+        /**
+          * Medium size image
+         */
         "medium"?: string;
+        /**
+          * Small size image src
+         */
         "small"?: string;
+        /**
+          * Large size image src
+         */
         "src"?: string;
     }
     interface IntrinsicElements {

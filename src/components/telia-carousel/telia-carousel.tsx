@@ -24,16 +24,16 @@ export class TeliaCarousel {
     return (
       <Host>
         <div class="container">
-          <ul class="pagination">
-            {[...Array(this.totalPages).keys()].map(page => (
-              <a class="page" href={`#slide-${page}`}>
-                {page + 1}
-              </a>
-            ))}
-          </ul>
           <div class="slider">
             <slot></slot>
           </div>
+          <ul class="pagination">
+            {[...Array(this.totalPages).keys()].map(page => (
+              <a class="page" href={`#slide-${page}`}>
+                page {page + 1}
+              </a>
+            ))}
+          </ul>
         </div>
       </Host>
     );
