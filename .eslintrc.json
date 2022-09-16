@@ -12,6 +12,7 @@
   "overrides": [],
   "rules": {
     "prettier/prettier": "error",
+    "no-console": "error",
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {

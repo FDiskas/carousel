@@ -1,4 +1,4 @@
-import { Component, Element, Host, h, Prop } from '@stencil/core';
+import { Component, Element, Host, h, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'telia-carousel',
@@ -12,12 +12,27 @@ export class TeliaCarousel {
 
   @Prop() height = 100;
 
+  @State() activePage = '';
+
+  observer: IntersectionObserver;
+
   componentDidLoad(): void {
-    console.log(this.el.childElementCount);
+    this.observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        this.activePage = entries[0].target.id;
+      }
+    });
+
+    // TODO: Check for performance
+    Array.from(this.carouselItems).forEach(el => this.observer.observe(el));
   }
 
   private get totalPages(): number {
     return this.el.childElementCount;
+  }
+
+  private get carouselItems(): HTMLCollection {
+    return this.el.children;
   }
 
   render() {
@@ -29,7 +44,8 @@ export class TeliaCarousel {
           </div>
           <ul class="pagination">
             {[...Array(this.totalPages).keys()].map(page => (
-              <a class="page" href={`#slide-${page}`}>
+              // TODO: Refactor this code to not use nested template literals
+              <a class={`page${this.activePage === `slide-${page}` ? ' active' : ''}`} href={`#slide-${page}`}>
                 page {page + 1}
               </a>
             ))}
