@@ -7,11 +7,13 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface TeliaCarousel {
-        "height": number;
-        "width": number;
+        "height": string;
+        "slideShowDelay": number;
+        "width": string;
     }
     interface TeliaImage {
         "alt": string;
+        "height": string;
         /**
           * Medium size image
          */
@@ -24,6 +26,7 @@ export namespace Components {
           * Large size image src
          */
         "src": string;
+        "width": string;
     }
 }
 declare global {
@@ -46,11 +49,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface TeliaCarousel {
-        "height"?: number;
-        "width"?: number;
+        "height"?: string;
+        "slideShowDelay"?: number;
+        "width"?: string;
     }
     interface TeliaImage {
         "alt"?: string;
+        "height"?: string;
         /**
           * Medium size image
          */
@@ -63,6 +68,7 @@ declare namespace LocalJSX {
           * Large size image src
          */
         "src"?: string;
+        "width"?: string;
     }
     interface IntrinsicElements {
         "telia-carousel": TeliaCarousel;

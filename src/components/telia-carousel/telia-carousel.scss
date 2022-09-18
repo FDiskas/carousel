@@ -30,7 +30,6 @@
 
 .container {
   width: 100%;
-  max-width: 600px;
   height: 300px;
   text-align: center;
   border: 0.2rem solid #990ae3;
@@ -46,6 +45,7 @@
   position: relative;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  margin-bottom: -15px;
 }
 
 .pagination {

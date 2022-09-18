@@ -4,6 +4,7 @@ import { sass } from '@stencil/sass';
 export const config: Config = {
   namespace: 'carousel',
   globalStyle: 'src/globals/variables.scss',
+  sourceMap: true,
   outputTargets: [
     {
       type: 'dist',
