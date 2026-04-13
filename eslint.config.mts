@@ -7,14 +7,7 @@ import stencil from '@stencil/eslint-plugin';
 
 export default defineConfig([
   {
-    ignores: [
-      'eslint.config.mts',
-      'dist/',
-      'loader/',
-      'www/',
-      'node_modules/',
-      // add other patterns as needed
-    ],
+    ignores: ['eslint.config.mts', 'dist/', 'loader/', 'www/', 'node_modules/', 'stencil.config.ts'],
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
