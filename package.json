@@ -24,8 +24,7 @@
     "lint": "eslint src/**/*{.ts,.tsx} --fix",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate",
-    "prepare": "patch-package"
+    "generate": "stencil generate"
   },
   "dependencies": {
     "@stencil/core": "^4.43.4"
