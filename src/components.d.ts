@@ -7,25 +7,49 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface TeliaCarousel {
+        /**
+          * The height of the carousel. Accepts any valid CSS height value.
+          * @default 'inherit'
+         */
         "height": string;
+        /**
+          * The delay (in milliseconds) between automatic slide transitions in slideshow mode.
+          * @default 5000
+         */
         "slideShowDelay": number;
+        /**
+          * The width of the carousel. Accepts any valid CSS width value.
+          * @default '100%'
+         */
         "width": string;
     }
     interface TeliaImage {
+        /**
+          * Alternative text for the image
+          * @default ''
+         */
         "alt": string;
+        /**
+          * Height of the image (e.g. '100%', '200px').
+          * @default 'inherit'
+         */
         "height": string;
         /**
           * Medium size image
          */
-        "medium": string;
+        "medium"?: string;
         /**
           * Small size image src
          */
-        "small": string;
+        "small"?: string;
         /**
           * Large size image src
          */
-        "src": string;
+        "src"?: string;
+        /**
+          * Width of the image (e.g. '100%', '200px').
+          * @default '100%'
+         */
         "width": string;
     }
 }
@@ -49,12 +73,32 @@ declare global {
 }
 declare namespace LocalJSX {
     interface TeliaCarousel {
+        /**
+          * The height of the carousel. Accepts any valid CSS height value.
+          * @default 'inherit'
+         */
         "height"?: string;
+        /**
+          * The delay (in milliseconds) between automatic slide transitions in slideshow mode.
+          * @default 5000
+         */
         "slideShowDelay"?: number;
+        /**
+          * The width of the carousel. Accepts any valid CSS width value.
+          * @default '100%'
+         */
         "width"?: string;
     }
     interface TeliaImage {
+        /**
+          * Alternative text for the image
+          * @default ''
+         */
         "alt"?: string;
+        /**
+          * Height of the image (e.g. '100%', '200px').
+          * @default 'inherit'
+         */
         "height"?: string;
         /**
           * Medium size image
@@ -68,19 +112,38 @@ declare namespace LocalJSX {
           * Large size image src
          */
         "src"?: string;
+        /**
+          * Width of the image (e.g. '100%', '200px').
+          * @default '100%'
+         */
         "width"?: string;
     }
+
+    interface TeliaCarouselAttributes {
+        "width": string;
+        "height": string;
+        "slideShowDelay": number;
+    }
+    interface TeliaImageAttributes {
+        "width": string;
+        "height": string;
+        "alt": string;
+        "src": string;
+        "small": string;
+        "medium": string;
+    }
+
     interface IntrinsicElements {
-        "telia-carousel": TeliaCarousel;
-        "telia-image": TeliaImage;
+        "telia-carousel": Omit<TeliaCarousel, keyof TeliaCarouselAttributes> & { [K in keyof TeliaCarousel & keyof TeliaCarouselAttributes]?: TeliaCarousel[K] } & { [K in keyof TeliaCarousel & keyof TeliaCarouselAttributes as `attr:${K}`]?: TeliaCarouselAttributes[K] } & { [K in keyof TeliaCarousel & keyof TeliaCarouselAttributes as `prop:${K}`]?: TeliaCarousel[K] };
+        "telia-image": Omit<TeliaImage, keyof TeliaImageAttributes> & { [K in keyof TeliaImage & keyof TeliaImageAttributes]?: TeliaImage[K] } & { [K in keyof TeliaImage & keyof TeliaImageAttributes as `attr:${K}`]?: TeliaImageAttributes[K] } & { [K in keyof TeliaImage & keyof TeliaImageAttributes as `prop:${K}`]?: TeliaImage[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "telia-carousel": LocalJSX.TeliaCarousel & JSXBase.HTMLAttributes<HTMLTeliaCarouselElement>;
-            "telia-image": LocalJSX.TeliaImage & JSXBase.HTMLAttributes<HTMLTeliaImageElement>;
+            "telia-carousel": LocalJSX.IntrinsicElements["telia-carousel"] & JSXBase.HTMLAttributes<HTMLTeliaCarouselElement>;
+            "telia-image": LocalJSX.IntrinsicElements["telia-image"] & JSXBase.HTMLAttributes<HTMLTeliaImageElement>;
         }
     }
 }

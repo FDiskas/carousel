@@ -1,43 +1,34 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Carousel</title>
 
-    <script type="module" src="/build/carousel.esm.js"></script>
-    <script nomodule src="/build/carousel.js"></script>
-    <link rel="stylesheet" href="/build/carousel.css" />
-  </head>
-  <body>
-    <telia-carousel height="300" width="600">
-      <!-- Image with extreme size -->
-      <telia-image
-        id="slide-0"
-        src="https://via.placeholder.com/1024x768?text=1024x768%201"
-        medium="https://via.placeholder.com/800x600?text=800x600%201"
-        small="https://via.placeholder.com/200x150?text=200x150%201"
-        alt="Slider demo"
-      ></telia-image>
-      <!-- Image with minimum properties -->
-      <telia-image id="slide-1" src="https://via.placeholder.com/1024x768?text=1024x768%202" alt="Slider demo" height="300"></telia-image>
-      <!-- Image with height -->
-      <telia-image
-        id="slide-2"
-        class="active"
-        src="https://via.placeholder.com/1024x768?text=1024x768%203"
-        medium="https://via.placeholder.com/800x600?text=800x600%203"
-        small="https://via.placeholder.com/200x150?text=200x150%203"
-        alt="Slider demo"
-      ></telia-image>
-      <!-- Image without size -->
-      <telia-image
-        id="slide-3"
-        src="https://via.placeholder.com/1024x768?text=1024x768%204"
-        medium="https://via.placeholder.com/800x600?text=800x600%204"
-        small="https://via.placeholder.com/200x150?text=200x150%204"
-        alt="Slider demo"
-      ></telia-image>
-    </telia-carousel>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Carousel</title>
+
+  <script type="module" src="/build/carousel.esm.js"></script>
+  <script nomodule src="/build/carousel.js"></script>
+  <link rel="stylesheet" href="/build/carousel.css" />
+</head>
+
+<body>
+  <telia-carousel height="300" width="600">
+    <!-- Image with extreme size -->
+    <telia-image id="slide-0" src="https://placehold.co/1024x768?text=1024x768%201"
+      medium="https://placehold.co/800x600?text=800x600%201" small="https://placehold.co/200x150?text=200x150%201"
+      alt="Slider demo"></telia-image>
+    <!-- Image with minimum properties -->
+    <telia-image id="slide-1" src="https://placehold.co/1024x768?text=1024x768%202" alt="Slider demo"
+      height="300"></telia-image>
+    <!-- Image with height -->
+    <telia-image id="slide-2" class="active" src="https://placehold.co/1024x768?text=1024x768%203"
+      medium="https://placehold.co/800x600?text=800x600%203" small="https://placehold.co/200x150?text=200x150%203"
+      alt="Slider demo"></telia-image>
+    <!-- Image without size -->
+    <telia-image id="slide-3" src="https://placehold.co/1024x768?text=1024x768%204"
+      medium="https://placehold.co/800x600?text=800x600%204" small="https://placehold.co/200x150?text=200x150%204"
+      alt="Slider demo"></telia-image>
+  </telia-carousel>
+</body>
+
 </html>

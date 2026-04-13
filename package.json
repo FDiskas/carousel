@@ -19,7 +19,7 @@
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
+    "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
     "lint": "eslint src/**/*{.ts,.tsx} --fix",
     "test": "stencil test --spec --e2e",
@@ -28,28 +28,23 @@
     "prepare": "patch-package"
   },
   "dependencies": {
-    "@stencil/core": "^2.13.0"
+    "@stencil/core": "^4.43.4"
   },
   "devDependencies": {
-    "@stencil/eslint-plugin": "^0.4.0",
-    "@stencil/sass": "^2.0.0",
-    "@types/jest": "^27.0.3",
-    "@typescript-eslint/eslint-plugin": "5.37.0",
-    "@typescript-eslint/parser": "5.37.0",
-    "eslint": "8.23.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard-with-typescript": "^23.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.0.1",
-    "eslint-plugin-react": "^7.31.8",
-    "jest": "^27.4.5",
-    "jest-cli": "^27.4.5",
-    "patch-package": "^6.4.7",
-    "prettier": "^2.7.1",
-    "puppeteer": "^10.0.0",
-    "typescript": "^4.8.3"
+    "@eslint/css": "^1.1.0",
+    "@eslint/js": "^10.0.1",
+    "@stencil/eslint-plugin": "^1.2.0",
+    "@stencil/sass": "^2.0.4",
+    "@types/jest": "^27.5.2",
+    "eslint": "^10.2.0",
+    "globals": "^17.5.0",
+    "jest": "^27.5.1",
+    "jest-cli": "^27.5.1",
+    "jiti": "^2.6.1",
+    "prettier": "^2.8.8",
+    "puppeteer": "^24.40.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.58.2"
   },
   "license": "MIT"
 }

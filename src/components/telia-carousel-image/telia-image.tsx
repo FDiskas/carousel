@@ -7,25 +7,34 @@ import { postfixDimensions } from '../../utils/utils';
   shadow: true,
 })
 export class TeliaImage {
+  /**
+   * Width of the image (e.g. '100%', '200px').
+   */
   @Prop() width: string = '100%';
 
+  /**
+   * Height of the image (e.g. '100%', '200px').
+   */
   @Prop() height: string = 'inherit';
 
-  @Prop() alt: string;
+  /**
+   * Alternative text for the image
+   */
+  @Prop() alt: string = '';
 
   /**
    * Large size image src
    */
-  @Prop() src: string;
+  @Prop() src?: string;
   /**
    * Small size image src
    */
-  @Prop() small: string;
+  @Prop() small?: string;
 
   /**
    * Medium size image
    */
-  @Prop() medium: string;
+  @Prop() medium?: string;
 
   private get styles(): { [key: string]: string | undefined } {
     const width = postfixDimensions(this.width);

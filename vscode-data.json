@@ -10,11 +10,15 @@
       "attributes": [
         {
           "name": "height",
-          "description": ""
+          "description": "The height of the carousel. Accepts any valid CSS height value."
+        },
+        {
+          "name": "slide-show-delay",
+          "description": "The delay (in milliseconds) between automatic slide transitions in slideshow mode."
         },
         {
           "name": "width",
-          "description": ""
+          "description": "The width of the carousel. Accepts any valid CSS width value."
         }
       ]
     },
@@ -27,19 +31,27 @@
       "attributes": [
         {
           "name": "alt",
-          "description": ""
+          "description": "Alternative text for the image"
+        },
+        {
+          "name": "height",
+          "description": "Height of the image (e.g. '100%', '200px')."
         },
         {
           "name": "medium",
-          "description": ""
+          "description": "Medium size image"
         },
         {
           "name": "small",
-          "description": ""
+          "description": "Small size image src"
         },
         {
           "name": "src",
-          "description": ""
+          "description": "Large size image src"
+        },
+        {
+          "name": "width",
+          "description": "Width of the image (e.g. '100%', '200px')."
         }
       ]
     }

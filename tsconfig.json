@@ -4,17 +4,23 @@
     "allowUnreachableCode": false,
     "declaration": false,
     "experimentalDecorators": true,
-    "lib": ["dom", "es2017"],
-    "moduleResolution": "node",
+    "lib": [
+      "dom",
+      "es2022"
+    ],
     "module": "esnext",
-    "target": "es2017",
+    "target": "es2022",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "rootDir": "./",
     "jsx": "react",
     "jsxFactory": "h",
-    "strictNullChecks": true,
-    "skipLibCheck": true
+    "jsxFragmentFactory": "h.Fragment",
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -7,29 +7,38 @@ import { postfixDimensions } from '../../utils/utils';
   shadow: true,
 })
 export class TeliaCarousel {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLElement | null = null;
 
+  /**
+   * The width of the carousel. Accepts any valid CSS width value.
+   */
   @Prop() width: string = '100%';
 
+  /**
+   * The height of the carousel. Accepts any valid CSS height value.
+   */
   @Prop() height: string = 'inherit';
 
+  /**
+   * The delay (in milliseconds) between automatic slide transitions in slideshow mode.
+   */
   @Prop() slideShowDelay = 5000;
 
-  @State() activePageNode?: Element;
+   @State() activePageNode?: Element;
 
-  private observer: IntersectionObserver;
+  private observer: IntersectionObserver | null = null;
 
   private initiallyActivePage?: Element;
 
   @State() timerId?: number;
 
   @Listen('mouseover', {})
-  private mouseOver(_event): void {
+  public mouseOver(): void {
     window.clearInterval(this.timerId);
   }
 
   @Listen('mouseout', {})
-  private mouseOut(_event): void {
+  public mouseOut(): void {
     window.clearInterval(this.timerId);
 
     if (window.location.hash === '') {
@@ -38,12 +47,12 @@ export class TeliaCarousel {
   }
 
   @Listen('hashchange', { target: 'window' })
-  private hashChange(_event): void {
+  public hashChange(): void {
     this.slideToActivePage();
   }
 
   connectedCallback(): void {
-    this.initiallyActivePage = this.el.querySelector('.active') ?? Array.from(this.carouselItems).find(Boolean);
+    this.initiallyActivePage = this.el?.querySelector('.active') ?? Array.from(this.carouselItems ?? []).find(Boolean);
 
     if (this.initiallyActivePage != null && window.location.hash === '') {
       window.clearInterval(this.timerId);
@@ -58,7 +67,9 @@ export class TeliaCarousel {
   componentDidLoad(): void {
     this.observer = new IntersectionObserver(this.onIntersection, { threshold: [0.3] });
 
-    Array.from(this.carouselItems).forEach(el => this.observer.observe(el));
+    if (this.carouselItems !== null) {
+      Array.from(this.carouselItems).forEach(el => this.observer?.observe(el));
+    }
 
     if (this.initiallyActivePage != null && window.location.hash !== '') {
       this.initiallyActivePage = undefined;
@@ -78,20 +89,22 @@ export class TeliaCarousel {
     }
   };
 
-  slideToActivePage = (): void => {
+  private slideToActivePage = (): void => {
     if (window.location.hash !== '') {
-      Array.from(this.carouselItems).forEach(el => {
-        if (`#${el.id}` === window.location.hash) {
-          return el.scrollIntoView();
-        }
-      });
+      if (this.carouselItems !== null) {
+        Array.from(this.carouselItems).forEach(el => {
+          if (`#${el.id}` === window.location.hash) {
+            return el.scrollIntoView();
+          }
+        });
+      }
     } else {
       this.activePageNode?.scrollIntoView();
     }
   };
 
   private get totalPages(): number {
-    return this.el.childElementCount;
+    return this.el?.childElementCount ?? 0;
   }
 
   private get currentPage(): number {
@@ -108,8 +121,8 @@ export class TeliaCarousel {
     return `${(this.activePageNode?.id ?? '').split('-')[0]}-${page}`;
   }
 
-  private get carouselItems(): HTMLCollection {
-    return this.el.children;
+  private get carouselItems(): HTMLCollection | null {
+    return this.el?.children ?? null;
   }
 
   private get styles(): { [key: string]: string | undefined } {
@@ -123,6 +136,10 @@ export class TeliaCarousel {
   }
 
   private readonly activateNextPage = (): void => {
+    if (this.carouselItems === null) {
+      return;
+    }
+
     if (this.carouselItems.length <= this.currentPage + 1) {
       this.activePageNode = this.carouselItems[0];
     } else {
